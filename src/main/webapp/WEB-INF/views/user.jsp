@@ -76,7 +76,7 @@ Lower Header Section
 				<a href="#"><img src="<c:url value="/assets/user/img/paypal.jpg"/>" alt="payment"></a>
 				<a href="#"><img src="<c:url value="/assets/user/img/goverment.png"/>" alt="payment"></a>
 			</p>
-			<span>Copyright &copy; 2023<br> Nhóm 04 - 04CLC
+			<span>Copyright &copy; 2023<br> Nhóm DOAN - 04CLC
 			</span>
 		</div>
 	</div>
