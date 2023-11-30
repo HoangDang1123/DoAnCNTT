@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/views/layouts/user/taglib.jsp"%>
 <head>
-<title>Khách hàng</title>
+<title>Sản phẩm</title>
 </head>
 <body>
 	<div class="row">
@@ -27,20 +27,16 @@
 		</div>
 
 		<div class="well well-small">
-			<h1>Giỏ hàng</h1>
+			<h1>Sản phẩm</h1>
 			<hr class="soften" />
 
 			<table class="table table-bordered table-condensed">
 				<thead>
 					<tr>
-						<th>Hình ảnh</th>
-						<th>Mô tả</th>
-						<th>Màu sắc</th>
-						<th>Giá bán</th>
-						<th>Số lượng</th>
-						<th>Chỉnh sửa</th>
-						<th>Xóa</th>
-						<th>Tổng tiền</th>
+						<th>Mã sản phẩm</th>
+						<th>Mã loại sản phẩm</th>
+						<th>Tên sản phẩm</th>
+						<th>Giá tiền</th>
 					</tr>
 				</thead>
 				<tbody>
