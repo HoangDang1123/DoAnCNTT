@@ -1,10 +1,11 @@
 package com.doan.Entity;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
 public class NhapHang {
 	private String maNhanVien;
 	private String maSanPham;
-	private LocalDateTime ngayNhapHang;
+	private Date ngayNhapHang;
 	private int soLuong; 
 	public NhapHang() {
 		super();
@@ -26,11 +27,11 @@ public class NhapHang {
 		this.maSanPham = maSanPham;
 	}
 	
-    public LocalDateTime getngayNhapHang() {
+    public Date getngayNhapHang() {
         return ngayNhapHang;
     }
-    public void setngayNhapHang(LocalDateTime ngayNhapHang) {
-        this.ngayNhapHang = ngayNhapHang;
+    public void setngayNhapHang(Date date) {
+        this.ngayNhapHang = date;
     }
 
 	public int getsoLuong() {

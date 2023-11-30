@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import com.doan.Dto.SanPhamDto;
 
 @Service
-public interface ICategoryService {
+public interface ISanPhamService {
+	public SanPhamDto GetProductByID(String id);
 	
-	public List<SanPhamDto> GetAllProductsByID(int id);
-	
+	public List<SanPhamDto> GetProductByIDCategory(String id);
 }

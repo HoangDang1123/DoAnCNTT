@@ -8,8 +8,8 @@ public class MapperTaiKhoan implements RowMapper<TaiKhoan> {
 	public TaiKhoan mapRow(ResultSet rs, int rowNum) throws SQLException {
 		TaiKhoan TaiKhoan = new TaiKhoan();
 		TaiKhoan.settenDangNhap(rs.getString("tenDangNhap"));
-		TaiKhoan.setmaNhanVien(rs.getString("maNhanVien"));
 		TaiKhoan.setmatKhau(rs.getString("matKhau")); 
+		TaiKhoan.setmaNhanVien(rs.getString("maNhanVien"));
 		return TaiKhoan;
 	}
 }

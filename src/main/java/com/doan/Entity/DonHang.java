@@ -1,9 +1,10 @@
 package com.doan.Entity;
+import java.sql.Date;
 import java.time.LocalDateTime;
 public class DonHang {
 	private String maDonHang;
 	private String maKhachHang;
-	private LocalDateTime  ngayDatHang;
+	private Date  ngayDatHang;
 	private int tongCong;
 	private String maNhanVien;
 	
@@ -28,11 +29,11 @@ public class DonHang {
 		this.maKhachHang = maKhachHang;
 	}
 
-    public LocalDateTime getngayDatHang() {
+    public Date getngayDatHang() {
         return ngayDatHang;
     }
-    public void setngayDatHang(LocalDateTime ngayDatHang) {
-        this.ngayDatHang = ngayDatHang;
+    public void setngayDatHang(Date date) {
+        this.ngayDatHang = date;
     }
 	public int gettongCong() {
 		return tongCong;

@@ -21,7 +21,7 @@
 							<label class="control-label" for="inputEmail">Tài khoản</label>
 							<div class="controls">
 								<form:input type="text" class="span3"
-									placeholder=" Mời nhập tài khoản" path="email" />
+									placeholder=" Mời nhập tài khoản" path="tenDangNhap" />
 							</div>
 						</div>
 						<div class="control-group">
@@ -29,7 +29,7 @@
 							</label>
 							<div class="controls">
 								<form:input type="password" class="span3"
-									placeholder=" Mời nhập mật khẩu" path="password" />
+									placeholder=" Mời nhập mật khẩu" path="matKhau" />
 							</div>
 						</div>
 						<br />

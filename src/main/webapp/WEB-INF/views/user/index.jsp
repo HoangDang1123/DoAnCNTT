@@ -16,11 +16,37 @@ Body Section
 				</a>
 				<div class="nav-collapse">
 					<ul class="nav">
-						<li class=""><a href="<c:url value="/khach-hang"/>">Khách hàng</a>
-						<li class=""><a href="<c:url value="/san-pham"/>">Sản phẩm</a>
-						<li class=""><a href="<c:url value="/loai-san-pham"/>">Loại sản phẩm</a>
-						<li class=""><a href="<c:url value="/nhap-hang"/>">Nhập hàng</a>
-						<li class=""><a href="<c:url value="/thanh-toan"/>">Thanh toán</a>
+						<li class=""><c:if test="${not empty LoginInfo }">
+								<a href="<c:url value="/khach-hang"/>">Khách hàng</a>
+							</c:if> <c:if test="${empty LoginInfo }">
+								<a href="<c:url value="/dang-nhap"/>"><span
+									class="icon-edit"></span>Khách hàng</a>
+							</c:if>
+						<li class=""><c:if test="${not empty LoginInfo }">
+								<a href="<c:url value="/san-pham"/>">Sản phẩm</a>
+							</c:if>
+							<c:if test="${empty LoginInfo }">
+								<a href="<c:url value="/dang-nhap"/>"><span
+									class="icon-edit"></span>Sản phẩm</a>
+							</c:if>
+						<li class=""><c:if test="${not empty LoginInfo }">
+								<a href="<c:url value="/loai-san-pham"/>">Loại sản phẩm</a>
+							</c:if> <c:if test="${empty LoginInfo }">
+								<a href="<c:url value="/dang-nhap"/>"><span
+									class="icon-edit"></span>Loại sản phẩm</a>
+							</c:if>
+						<li class=""><c:if test="${not empty LoginInfo }">
+								<a href="<c:url value="/nhap-hang"/>">Nhập hàng</a>
+							</c:if> <c:if test="${empty LoginInfo }">
+								<a href="<c:url value="/dang-nhap"/>"><span
+									class="icon-edit"></span>Nhập hàng</a>
+							</c:if>
+						<li class=""><c:if test="${not empty LoginInfo }">
+								<a href="<c:url value="/thanh-toan"/>">Thanh toán</a>
+							</c:if> <c:if test="${empty LoginInfo }">
+								<a href="<c:url value="/dang-nhap"/>"><span
+									class="icon-edit"></span>Thanh toán</a>
+							</c:if>
 					</ul>
 				</div>
 			</div>

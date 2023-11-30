@@ -25,7 +25,7 @@
 		<property name="driverClassName"
 			value="net.sourceforge.jtds.jdbc.Driver"></property>
 		<property name="url"
-			value="jdbc:jtds:sqlserver://localhost:1433/yume"></property>
+			value="jdbc:jtds:sqlserver://localhost:1433/storeManagement"></property>
 		<property name="username" value="sa"></property>
 		<property name="password" value="123456"></property>
 	</bean>
