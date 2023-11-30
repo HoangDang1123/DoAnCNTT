@@ -7,7 +7,7 @@
 		<div class="span4">
 			<h1>
 				<a class="logo" href="<c:url value="/"/>"><img
-					src="<c:url value="/assets/user/img/logo1.png" />"
+					src="<c:url value="/assets/user/img/logo.png" />"
 					alt="bootstrap sexy shop"> </a>
 			</h1>
 		</div>
@@ -16,7 +16,6 @@
 
 <!--
 Navigation Bar Section 
--->
 <div class="navbar">
 	<div class="navbar-inner">
 		<div class="container">
@@ -37,10 +36,8 @@ Navigation Bar Section
 					</c:forEach>
 					
 				</ul>
-				<form action="#" class="navbar-search">
-					<input type="text" placeholder="Search" class="search-query span3">
-				</form>
 			</div>
 		</div>
 	</div>
 </div>
+-->

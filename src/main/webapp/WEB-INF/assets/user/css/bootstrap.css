@@ -227,7 +227,7 @@ body {
   font-size: 14px;
   line-height: 20px;
   color: #333333;
-  background-color: #14033D;
+  background-color: #fff;
 }
 
 a {
@@ -789,7 +789,7 @@ h4 {
 }
 
 h5 {
-  font-size: 14px;
+  font-size: 24px;
 }
 
 h6 {
@@ -3973,6 +3973,7 @@ input[type="submit"].btn.btn-mini {
   margin-bottom: 20px;
   margin-left: 0;
   list-style: none;
+  float:right;
 }
 
 .nav > li > a {

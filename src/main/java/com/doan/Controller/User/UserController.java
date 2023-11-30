@@ -21,22 +21,8 @@ public class UserController extends BaseController {
 	
 	@RequestMapping(value="/dang-ky",method= RequestMethod.GET)
 	public ModelAndView Register() {
-		_mvShare.setViewName("user/account/register");
+		_mvShare.setViewName("user/account/signin");
 		_mvShare.addObject("user", new Users());
-		return _mvShare;
-		
-	}
-	
-	@RequestMapping(value="/dang-ky",method= RequestMethod.POST)
-	public ModelAndView CreateAcc(@ModelAttribute("user") Users user) {
-		int count = accountService.AddAccount(user);
-		if(count > 0) {
-			_mvShare.addObject("status", "Đăng ký tài khoản thành công!");
-		}
-		else {
-			_mvShare.addObject("status", "Đăng ký tài khoản thất bại!");
-		}
-		_mvShare.setViewName("user/account/register");
 		return _mvShare;
 		
 	}
