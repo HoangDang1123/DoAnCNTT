@@ -34,7 +34,7 @@
 					Trang chủ
 				</a>
 				<c:if test="${not empty LoginInfo }">
-					<a href="#"><span class="icon-user"></span>${LoginInfo.maNhanVien }</a>
+					<a href="<c:url value="/thong-tin"/>"><span class="icon-user"></span>${LoginInfo.maNhanVien }</a>
 					<a href="<c:url value="/dang-xuat"/>"><span class="icon-edit"></span>
 						Đăng xuất</a>
 				</c:if>
@@ -43,7 +43,7 @@
 					<a href="<c:url value="/dang-nhap"/>"><span class="icon-edit"></span>Đăng
 						nhập</a>
 				</c:if>
-				<a href="contact.html"><span class="icon-envelope"></span> Liên
+				<a href="#"><span class="icon-envelope"></span> Liên
 					hệ</a>
 			</div>
 		</div>

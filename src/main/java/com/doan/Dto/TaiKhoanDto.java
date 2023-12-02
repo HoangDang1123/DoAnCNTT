@@ -1,11 +1,11 @@
-package com.doan.Entity;
+package com.doan.Dto;
 
-public class TaiKhoan {
+public class TaiKhoanDto {
 	private String maNhanVien;
 	private String tenDangNhap;
 	private String matKhau;
 	
-	public TaiKhoan() {
+	public TaiKhoanDto() {
 		super();
 	}
 

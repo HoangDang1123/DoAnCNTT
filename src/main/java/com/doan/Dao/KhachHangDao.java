@@ -26,13 +26,6 @@ public class KhachHangDao extends BaseDao {
 		sql.append("WHERE maKhachHang = " + id + " ");
 		return sql;
 	}
-	
-	private String SqlCustomersPaginate(String id, int start, int totalPage) {
-		StringBuffer sql = SqlCustomersByID(id);
-		sql.append("ORDER BY NEWID() ");
-		sql.append("OFFSET " + start + " ROWS FETCH NEXT " + totalPage + " ROWS ONLY");
-		return sql.toString();
-	}
 
 	public List<KhachHangDto> GetDataCustomers() {
 		String sql = SqlString().toString();
@@ -45,21 +38,10 @@ public class KhachHangDao extends BaseDao {
 		List<KhachHangDto> listCustomers = _jdbcTemplate.query(sql, new KhachHangDtoMapper());
 		return listCustomers;
 	}
-	
-	public List<KhachHangDto> GetDataCustomersPaginate(String id, int start, int totalPage) {
-		StringBuffer sqlGetDataByID = SqlCustomersByID(id);
-		List<KhachHangDto> listCustomersByID = _jdbcTemplate.query(sqlGetDataByID.toString(), new KhachHangDtoMapper());
-		List<KhachHangDto> listCustomers = new ArrayList<KhachHangDto>();
-		if(listCustomersByID.size() > 0) {
-			String sql = SqlCustomersPaginate(id, start, totalPage);
-			listCustomers = _jdbcTemplate.query(sql, new KhachHangDtoMapper());
-		}
-		return listCustomers;
-	}
 
 	private String SqlCustomerByID(String id) {
 		StringBuffer sql = SqlString();
-		sql.append("WHERE s.maKhachHang = " + id + " ");
+		sql.append("WHERE maKhachHang = " + id + " ");
 		return sql.toString();
 	}
 	

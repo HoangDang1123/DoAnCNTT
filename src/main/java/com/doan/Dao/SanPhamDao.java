@@ -28,13 +28,6 @@ public class SanPhamDao extends BaseDao {
 		sql.append("WHERE maSanPham = " + id + " ");
 		return sql;
 	}
-	
-	private String SqlProductsPaginate(String id, int start, int totalPage) {
-		StringBuffer sql = SqlProductsByID(id);
-		sql.append("ORDER BY NEWID() ");
-		sql.append("OFFSET " + start + " ROWS FETCH NEXT " + totalPage + " ROWS ONLY");
-		return sql.toString();
-	}
 
 	public List<SanPhamDto> GetDataProducts() {
 		String sql = SqlString().toString();
@@ -45,17 +38,6 @@ public class SanPhamDao extends BaseDao {
 	public List<SanPhamDto> GetAllProductsByID(String id) {
 		String sql = SqlProductsByID(id).toString();
 		List<SanPhamDto> listProducts = _jdbcTemplate.query(sql, new SanPhamDtoMapper());
-		return listProducts;
-	}
-	
-	public List<SanPhamDto> GetDataProductsPaginate(String id, int start, int totalPage) {
-		StringBuffer sqlGetDataByID = SqlProductsByID(id);
-		List<SanPhamDto> listProductsByID = _jdbcTemplate.query(sqlGetDataByID.toString(), new SanPhamDtoMapper());
-		List<SanPhamDto> listProducts = new ArrayList<SanPhamDto>();
-		if(listProductsByID.size() > 0) {
-			String sql = SqlProductsPaginate(id, start, totalPage);
-			listProducts = _jdbcTemplate.query(sql, new SanPhamDtoMapper());
-		}
 		return listProducts;
 	}
 
