@@ -16,9 +16,8 @@ public class TaiKhoanServiceImpl implements ITaiKhoanService {
 	TaiKhoanDao taiKhoanDao = new TaiKhoanDao();
 
 	public TaiKhoan CheckAccount(TaiKhoan taikhoan) {
-		String matkhau = taikhoan.getmatKhau();
 		taikhoan = taiKhoanDao.GetUserByAcc(taikhoan);
-		if(taikhoan != null) {
+		if(taikhoan != null  ) {
 			return taikhoan;
 		}	
 		return null;

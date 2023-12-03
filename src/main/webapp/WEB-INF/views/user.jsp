@@ -30,17 +30,17 @@
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="topNav">
 			<div class="container">
-				<a class="" href="<c:url value="/"/>"> <span class="icon-home"></span>
+				<a class="" href="<c:url value="/user/"/>"> <span class="icon-home"></span>
 					Trang chủ
 				</a>
-				<c:if test="${not empty LoginInfo }">
-					<a href="<c:url value="/thong-tin"/>"><span class="icon-user"></span>${LoginInfo.maNhanVien }</a>
+				<c:if test="${not empty sessionScope.LoginInfo}">
+					<a href="<c:url value="/thong-tin"/>"><span class="icon-user"></span>${sessionScope.LoginInfo.tenDangNhap}</a>
 					<a href="<c:url value="/dang-xuat"/>"><span class="icon-edit"></span>
 						Đăng xuất</a>
 				</c:if>
 
 				<c:if test="${empty LoginInfo }">
-					<a href="<c:url value="/dang-nhap"/>"><span class="icon-edit"></span>Đăng
+					<a href="<c:url value="/user/dang-nhap"/>"><span class="icon-edit"></span>Đăng
 						nhập</a>
 				</c:if>
 				<a href="#"><span class="icon-envelope"></span> Liên

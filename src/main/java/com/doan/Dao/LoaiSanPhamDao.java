@@ -1,13 +1,15 @@
 package com.doan.Dao;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.doan.Dto.LoaiSanPhamDto;
 import com.doan.Dto.LoaiSanPhamDtoMapper;
+import com.doan.Dto.SanPhamDto;
+import com.doan.Dto.SanPhamDtoMapper;
+import com.doan.Entity.LoaiSanPham;
 
 @Repository
 public class LoaiSanPhamDao extends BaseDao {
@@ -22,20 +24,56 @@ public class LoaiSanPhamDao extends BaseDao {
 		return sql;
 	}
 
-	/*
-	 * private StringBuffer SqlProductsByID(String id) { StringBuffer sql =
-	 * SqlString(); sql.append("WHERE maSanPham = " + id + " "); return sql; }
-	 * 
-	 * private String SqlProductsPaginate(String id, int start, int totalPage) {
-	 * StringBuffer sql = SqlProductsByID(id); sql.append("ORDER BY NEWID() ");
-	 * sql.append("OFFSET " + start + " ROWS FETCH NEXT " + totalPage +
-	 * " ROWS ONLY"); return sql.toString(); }
-	 */
+	public int AddProductType (LoaiSanPham loaisanpham) {
+		try {
+			StringBuffer sql = new StringBuffer();
+			sql.append("INSERT ");
+			sql.append("INTO LoaiSanPham ");
+			sql.append("(");
+			sql.append("maLoaiSanPham,");
+			sql.append(" tenLoaiSanPham");
+			sql.append(") ");
+			sql.append("VALUES ");
+			sql.append("(");
+			sql.append("'"+loaisanpham.getmaLoaiSanPham()+"', ");
+			sql.append("'"+loaisanpham.gettenLoaiSanPham()+"'");
+			sql.append(")");
+
+			int insert = _jdbcTemplate.update(sql.toString());
+			return insert;
+		}
+		catch (DataAccessException e){
+			int insert = 0;
+			return insert;
+		}
+	};
+	
+	public void updateData(LoaiSanPhamDto loaisanpham) {
+        String sql = "UPDATE SanPham SET tenLoaiSanPham = ? WHERE maLoaiSanPham = ?";
+        _jdbcTemplate.update(sql, loaisanpham.gettenLoaiSanPham());
+	}
+	
+	public void deleteData(String id) {
+        String sql = "DELETE FROM LoaiSanPham WHERE maLoaiSanPham = ?";
+        _jdbcTemplate.update(sql, id);
+    }
 
 	public List<LoaiSanPhamDto> GetDataLoaiSanPham() {
 		String sql = SqlString().toString();
 		List<LoaiSanPhamDto> listLoaiSanPham = _jdbcTemplate.query(sql, new LoaiSanPhamDtoMapper());
 		return listLoaiSanPham;
+	}
+	
+	private String SqlProductTypeByID(String id) {
+		StringBuffer sql = SqlString();
+		sql.append("WHERE lsp.maloaiSanPham = " + id + " ");
+		return sql.toString();
+	}
+	
+	public List<LoaiSanPhamDto> GetProductTypeByID(String id) {
+		String sql = SqlProductTypeByID(id);
+		List<LoaiSanPhamDto> listProductType = _jdbcTemplate.query(sql, new LoaiSanPhamDtoMapper());
+		return listProductType;
 	}
 	
 	/*

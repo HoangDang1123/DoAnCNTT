@@ -18,31 +18,6 @@
 </head>
 <body>
 	<div class="row">
-		<div class="navbar">
-			<div class="navbar-inner">
-				<div class="container">
-					<a data-target=".nav-collapse" data-toggle="collapse"
-						class="btn btn-navbar"> <span class="icon-bar"></span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span>
-					</a>
-					<div class="nav-collapse">
-						<ul class="nav">
-							<li class=""><a href="<c:url value="/khach-hang"/>">Khách
-									hàng</a>
-							<li class=""><a href="<c:url value="/san-pham"/>">Sản
-									phẩm</a>
-							<li class=""><a href="<c:url value="/loai-san-pham"/>">Loại
-									sản phẩm</a>
-							<li class=""><a href="<c:url value="/nhap-hang"/>">Nhập
-									hàng</a>
-							<li class=""><a href="<c:url value="/thanh-toan"/>">Thanh
-									toán</a>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-
 		<div class="row">
 			<div id="sidebar"></div>
 			<div class="span10">
@@ -64,7 +39,7 @@
 									nhập: </label>
 								<div class="controls">
 									<input type="text" class="span3"
-										value="${taikhoan.tenDangNhap }" readonly>
+										value="${taikhoan.tenDangNhap }">
 								</div>
 							</div>
 							<div class="control-group">
@@ -73,6 +48,37 @@
 									<input type="text" class="span3" value="${taikhoan.matKhau }">
 								</div>
 							</div>
+							<div class="control-group">
+								<label class="control-label" for="name">Tên nhân viên: </label>
+								<div class="controls">
+									<input type="text" class="span3" value="${thongtin.tenNhanVien }">
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="name">Giới tính: </label>
+								<div class="controls">
+									<c:if test="${thongtin.gioiTinh == 1 }">
+										<input type="text" class="span3" value="Nam">
+									</c:if>
+									<c:if test="${thongtin.gioiTinh == 0 }">
+										<input type="text" class="span3" value="Nữ">
+									</c:if>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="sdt">Số điện thoại: </label>
+								<div class="controls">
+									<input type="text" class="span3" value="${thongtin.sdt }">
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="role">Chức vụ: </label>
+								<div class="controls">
+									<input type="text" class="span3" value="${thongtin.chucVu }" readonly>
+								</div>
+							</div>
+							
+							<a href="javascript:history.back()" class="defaultBtn">Quay lại</a>
 						</form>
 
 					</div>

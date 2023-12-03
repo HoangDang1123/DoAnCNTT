@@ -10,7 +10,8 @@ public class MapperSanPham implements RowMapper<SanPham> {
 		SanPham.setmaSanPham(rs.getString("maSanPham"));
 		SanPham.setmaLoaiSanPham(rs.getString("maLoaiSanPham"));
 		SanPham.settenSanPham(rs.getString("tenSanPham")); 
-		SanPham.setgiaTien(rs.getInt("giaTien"));
+		SanPham.setgiaTien(rs.getLong("giaTien"));
+		SanPham.setsoLuongHienCo(rs.getInt("soLuongHienCo"));
 		return SanPham;
 	}
 }

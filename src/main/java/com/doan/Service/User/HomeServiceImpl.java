@@ -18,12 +18,6 @@ import com.doan.Dto.TaiKhoanDto;
 
 @Service
 public class HomeServiceImpl implements IHomeService{
-	@Autowired
-	private SanPhamDao productsDao;
-	public List<SanPhamDto> GetDataProducts() {
-		List<SanPhamDto> listProducts = productsDao.GetDataProducts();
-		return listProducts;
-	}
 	
 	@Autowired
 	private KhachHangDao customersDao;
@@ -33,14 +27,19 @@ public class HomeServiceImpl implements IHomeService{
 	}
 	
 	@Autowired
+	private NhanVienDao employeesDao;
+	public List<NhanVienDto> GetDataEmployees() {
+		List<NhanVienDto> listEmployees = employeesDao.GetDataEmployees();
+		return listEmployees;
+	}
+	
+	@Autowired
 	private TaiKhoanDao infosDao;
 	public TaiKhoanDto GetInfoByID(String id) {
 		TaiKhoanDto listInfos = infosDao.GetInfoByID(id);
 		return listInfos;
 	}
 	
-	@Autowired
-	private NhanVienDao employeesDao;
 	public NhanVienDto GetEmployeeByID(String id) {
 		NhanVienDto listEmployees = employeesDao.GetEmployeeByID(id);
 		return listEmployees;
@@ -51,5 +50,12 @@ public class HomeServiceImpl implements IHomeService{
 	public List<LoaiSanPhamDto> GetDataLoaiSanPham() {
 		List<LoaiSanPhamDto> listLoaiSanPham = loaiSanPhamDao.GetDataLoaiSanPham();
 		return listLoaiSanPham;
+	}
+	
+	@Autowired
+	private SanPhamDao sanPhamDao;
+	public List<SanPhamDto> GetDataProducts() {
+		List<SanPhamDto> listSanPham = sanPhamDao.GetDataProducts();
+		return listSanPham;
 	}
 }

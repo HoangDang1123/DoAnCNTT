@@ -15,16 +15,30 @@
 					</a>
 					<div class="nav-collapse">
 						<ul class="nav">
-							<li class=""><a href="<c:url value="/khach-hang"/>">Khách
-									hàng</a>
-							<li class=""><a href="<c:url value="/san-pham"/>">Sản
-									phẩm</a>
-							<li class=""><a href="<c:url value="/loai-san-pham"/>">Loại
-									sản phẩm</a>
-							<li class=""><a href="<c:url value="/nhap-hang"/>">Nhập
-									hàng</a>
-							<li class=""><a href="<c:url value="/thanh-toan"/>">Thanh
-									toán</a>
+							<li class=""><c:if test="${not empty LoginInfo }">
+									<a href="<c:url value="thanh-toan"/>">Thanh Toán</a>
+								</c:if> <c:if test="${empty LoginInfo }">
+									<a href="<c:url value="/user/dang-nhap"/>"><span
+										class="icon-edit"></span>Thanh Toán</a>
+								</c:if>
+							<li class=""><c:if test="${not empty LoginInfo }">
+									<a href="<c:url value="/user/xem-san-pham"/>">Sản phẩm</a>
+								</c:if> <c:if test="${empty LoginInfo }">
+									<a href="<c:url value="/user/dang-nhap"/>"><span class="icon-edit"></span>Sản
+										phẩm</a>
+								</c:if>
+							<li class=""><c:if test="${not empty LoginInfo }">
+									<a href="<c:url value="/user/khach-hang"/>">Khách hàng</a>
+								</c:if> <c:if test="${empty LoginInfo }">
+									<a href="<c:url value="/user/dang-nhap"/>"><span
+										class="icon-edit"></span>Khách hàng</a>
+								</c:if>
+							<li class=""><c:if test="${not empty LoginInfo }">
+									<a href="<c:url value="nhap-hang"/>">Nhập Hàng</a>
+								</c:if> <c:if test="${empty LoginInfo }">
+									<a href="<c:url value="/user/dang-nhap"/>"><span
+										class="icon-edit"></span>Nhập Hàng</a>
+								</c:if>
 						</ul>
 					</div>
 				</div>
@@ -34,6 +48,9 @@
 		<div class="well well-small">
 			<h1>Khách hàng</h1>
 			<hr class="soften" />
+			<br> <a href="<c:url value="/them-khach-hang"/>"
+				class="addBtn">Thêm</a> <br>
+			<br>
 
 			<table class="table table-bordered table-condensed">
 				<thead>
@@ -52,16 +69,16 @@
 							<td>${ item.maKhachHang }</td>
 							<td>${ item.tenKhachHang }</td>
 							<td>${ item.sdt }</td>
-							<td>
-								<button data-id="${ item.maKhachHang }"
-									class="btn-btn-mini btn-danger edit-cart" type="button">
-									<span class="icon-edit"></span>
-								</button>
-							</td>
-							<td><a href="<c:url value="/DeleteCart/${ item.maKhachHang }"/>"
+							<td><a
+								href="<c:url value='/editCustomer/${item.maKhachHang}'/>"
+								class="btn btn-mini btn-info" type="button"> <span
+									class="icon-edit"></span> Chỉnh sửa
+							</a></td>
+							<td><a
+								href="<c:url value='/deleteCustomer/${item.maKhachHang}'/>"
 								class="btn btn-mini btn-danger" type="button"> <span
-									class="icon-remove"></span>
-								</a></td>
+									class="icon-remove"></span> Xóa
+							</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

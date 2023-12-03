@@ -6,6 +6,7 @@ public class SanPhamDto {
 	private String tenSanPham;
 	private long giaTien;
 	private String maLoaiSanPham;
+	private int soLuongHienCo;
 	
 	public SanPhamDto() {
 		super();
@@ -41,5 +42,13 @@ public class SanPhamDto {
 
 	public void setmaLoaiSanPham(String maLoaiSanPham) {
 		this.maLoaiSanPham = maLoaiSanPham;
+	}
+	
+	public int getsoLuongHienCo() {
+		return soLuongHienCo;
+	}
+
+	public void setsoLuongHienCo(int soLuongHienCo) {
+		this.soLuongHienCo = soLuongHienCo;
 	}
 }

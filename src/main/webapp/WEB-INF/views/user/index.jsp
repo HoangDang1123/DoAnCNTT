@@ -17,35 +17,28 @@ Body Section
 				<div class="nav-collapse">
 					<ul class="nav">
 						<li class=""><c:if test="${not empty LoginInfo }">
-								<a href="<c:url value="/khach-hang"/>">Khách hàng</a>
+								<a href="<c:url value="thanh-toan"/>">Thanh Toán</a>
 							</c:if> <c:if test="${empty LoginInfo }">
-								<a href="<c:url value="/dang-nhap"/>"><span
-									class="icon-edit"></span>Khách hàng</a>
+								<a href="<c:url value="/user/dang-nhap"/>"><span
+									class="icon-edit"></span>Thanh Toán</a>
 							</c:if>
 						<li class=""><c:if test="${not empty LoginInfo }">
-								<a href="<c:url value="/san-pham"/>">Sản phẩm</a>
-							</c:if>
-							<c:if test="${empty LoginInfo }">
-								<a href="<c:url value="/dang-nhap"/>"><span
+								<a href="<c:url value="/user/xem-san-pham"/>">Sản phẩm</a>
+							</c:if> <c:if test="${empty LoginInfo }">
+								<a href="<c:url value="/user/dang-nhap"/>"><span
 									class="icon-edit"></span>Sản phẩm</a>
 							</c:if>
 						<li class=""><c:if test="${not empty LoginInfo }">
-								<a href="<c:url value="/loai-san-pham"/>">Loại sản phẩm</a>
+								<a href="<c:url value="/user/khach-hang"/>">Khách hàng</a>
 							</c:if> <c:if test="${empty LoginInfo }">
-								<a href="<c:url value="/dang-nhap"/>"><span
-									class="icon-edit"></span>Loại sản phẩm</a>
+								<a href="<c:url value="/user/dang-nhap"/>"><span
+									class="icon-edit"></span>Khách hàng</a>
 							</c:if>
 						<li class=""><c:if test="${not empty LoginInfo }">
-								<a href="<c:url value="/nhap-hang"/>">Nhập hàng</a>
+								<a href="<c:url value="nhap-hang"/>">Nhập Hàng</a>
 							</c:if> <c:if test="${empty LoginInfo }">
-								<a href="<c:url value="/dang-nhap"/>"><span
-									class="icon-edit"></span>Nhập hàng</a>
-							</c:if>
-						<li class=""><c:if test="${not empty LoginInfo }">
-								<a href="<c:url value="/thanh-toan"/>">Thanh toán</a>
-							</c:if> <c:if test="${empty LoginInfo }">
-								<a href="<c:url value="/dang-nhap"/>"><span
-									class="icon-edit"></span>Thanh toán</a>
+								<a href="<c:url value="/user/dang-nhap"/>"><span
+									class="icon-edit"></span>Nhập Hàng</a>
 							</c:if>
 					</ul>
 				</div>

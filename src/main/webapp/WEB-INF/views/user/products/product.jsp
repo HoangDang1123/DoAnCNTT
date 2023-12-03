@@ -14,19 +14,33 @@
 						class="icon-bar"></span> <span class="icon-bar"></span>
 					</a>
 					<div class="nav-collapse">
-						<ul class="nav">
-							<li class=""><a href="<c:url value="/khach-hang"/>">Khách
-									hàng</a>
-							<li class=""><a href="<c:url value="/san-pham"/>">Sản
-									phẩm</a>
-							<li class=""><a href="<c:url value="/loai-san-pham"/>">Loại
-									sản phẩm</a>
-							<li class=""><a href="<c:url value="/nhap-hang"/>">Nhập
-									hàng</a>
-							<li class=""><a href="<c:url value="/thanh-toan"/>">Thanh
-									toán</a>
-						</ul>
-					</div>
+					<ul class="nav">
+						<li class=""><c:if test="${not empty LoginInfo }">
+								<a href="<c:url value="thanh-toan"/>">Thanh Toán</a>
+							</c:if> <c:if test="${empty LoginInfo }">
+								<a href="<c:url value="/user/dang-nhap"/>"><span
+									class="icon-edit"></span>Thanh Toán</a>
+							</c:if>
+						<li class=""><c:if test="${not empty LoginInfo }">
+								<a href="<c:url value="/user/san-pham"/>">Sản phẩm</a>
+							</c:if> <c:if test="${empty LoginInfo }">
+								<a href="<c:url value="/user/dang-nhap"/>"><span
+									class="icon-edit"></span>Sản phẩm</a>
+							</c:if>
+						<li class=""><c:if test="${not empty LoginInfo }">
+								<a href="<c:url value="/user/khach-hang"/>">Khách hàng</a>
+							</c:if> <c:if test="${empty LoginInfo }">
+								<a href="<c:url value="/user/dang-nhap"/>"><span
+									class="icon-edit"></span>Khách hàng</a>
+							</c:if>
+						<li class=""><c:if test="${not empty LoginInfo }">
+								<a href="<c:url value="nhap-hang"/>">Nhập Hàng</a>
+							</c:if> <c:if test="${empty LoginInfo }">
+								<a href="<c:url value="/user/dang-nhap"/>"><span
+									class="icon-edit"></span>Nhập Hàng</a>
+							</c:if>
+					</ul>
+				</div>
 				</div>
 			</div>
 		</div>
@@ -34,6 +48,7 @@
 		<div class="well well-small">
 			<h1>Sản phẩm</h1>
 			<hr class="soften" />
+			<br>
 
 			<table class="table table-bordered table-condensed">
 				<thead>
@@ -42,8 +57,7 @@
 						<th>Mã loại sản phẩm</th>
 						<th>Tên sản phẩm</th>
 						<th>Giá tiền</th>
-						<th>Chỉnh sửa</th>
-						<th>Xóa</th>
+						<th>Số lượng hiện có</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -53,19 +67,10 @@
 							<td>${ item.maSanPham }</td>
 							<td>${ item.maLoaiSanPham }</td>
 							<td>${ item.tenSanPham }</td>
-							<td><fmt:formatNumber type="number" groupingUsed="true"
-									value="${ item.giaTien }" /> ₫</td>
-							<td>
-							<button data-id="${ item.maSanPham }"
-								class="btn-btn-mini btn-danger edit-cart" type="button">
-								<span class="icon-edit"></span>
-							</button>
-							</td>
-							<td><a href="<c:url value="/DeleteCart/${ item.maSanPham }"/>"
-								class="btn btn-mini btn-danger" type="button"> <span
-									class="icon-remove"></span>
-								</a></td>
+							<td>${ item.giaTien }</td>
+							<td>${ item.soLuongHienCo }</td>
 						</tr>
+
 					</c:forEach>
 				</tbody>
 			</table>

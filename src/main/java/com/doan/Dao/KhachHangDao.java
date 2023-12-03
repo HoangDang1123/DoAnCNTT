@@ -1,12 +1,19 @@
 package com.doan.Dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.doan.Dto.KhachHangDto;
 import com.doan.Dto.KhachHangDtoMapper;
+import com.doan.Dto.SanPhamDto;
+import com.doan.Entity.KhachHang;
+import com.doan.Entity.LoaiSanPham;
 
 @Repository
 public class KhachHangDao extends BaseDao {
@@ -20,6 +27,42 @@ public class KhachHangDao extends BaseDao {
 		sql.append("KhachHang");
 		return sql;
 	}
+	
+	public int AddCustomer (KhachHang khachhang) {
+		try {
+			StringBuffer sql = new StringBuffer();
+			sql.append("INSERT ");
+			sql.append("INTO KhachHang ");
+			sql.append("(");
+			sql.append("maKhachHang,");
+			sql.append(" tenKhachHang,");
+			sql.append(" sdt");
+			sql.append(") ");
+			sql.append("VALUES ");
+			sql.append("(");
+			sql.append("'"+khachhang.getmaKhachHang()+"', ");
+			sql.append("'"+khachhang.gettenKhachHang()+"', ");
+			sql.append("'"+khachhang.getsdt()+"'");
+			sql.append(")");
+
+			int insert = _jdbcTemplate.update(sql.toString());
+			return insert;
+		}
+		catch (DataAccessException e){
+			int insert = 0;
+			return insert;
+		}
+	};
+	
+	public void updateData(KhachHangDto khachhang) {
+        String sql = "UPDATE KhachHang SET tenKhachHang = ?, sdt = ? WHERE maKhachHang = ?";
+        _jdbcTemplate.update(sql, khachhang.gettenKhachHang(), khachhang.getsdt());
+	}
+	
+	public void deleteData(String id) {
+        String sql = "DELETE FROM KhachHang WHERE maKhachHang = ?";
+        _jdbcTemplate.update(sql, id);
+    }
 
 	private StringBuffer SqlCustomersByID(String id) {
 		StringBuffer sql = SqlString();
@@ -55,5 +98,21 @@ public class KhachHangDao extends BaseDao {
 		String sql = SqlCustomerByID(id);
 		KhachHangDto listCustomer = _jdbcTemplate.queryForObject(sql, new KhachHangDtoMapper());
 		return listCustomer;
+	}
+	
+	@Autowired
+	protected JdbcTemplate jdbc;
+	
+	protected List<KhachHangDto> getBySql (String sql) {
+		return jdbc.query(sql, getRowMapper());
+	}
+	
+	private RowMapper<KhachHangDto> getRowMapper() {
+		return new BeanPropertyRowMapper<KhachHangDto>(KhachHangDto.class);
+	}
+	
+	public List<KhachHangDto> getAll() {
+		String sql = "SELECT * FROM KhachHang";
+		return getBySql(sql);
 	}
 }

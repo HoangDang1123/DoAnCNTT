@@ -12,6 +12,7 @@ public class SanPhamDtoMapper implements RowMapper<SanPhamDto>{
 		SanPham.setmaLoaiSanPham(rs.getString("maLoaiSanPham"));
 		SanPham.settenSanPham(rs.getString("tenSanPham"));
 		SanPham.setgiaTien(rs.getLong("giaTien"));
+		SanPham.setsoLuongHienCo(rs.getInt("soLuongHienCo"));
 		return SanPham;
 	}
 }

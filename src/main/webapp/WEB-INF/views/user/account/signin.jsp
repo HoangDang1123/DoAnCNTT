@@ -13,7 +13,7 @@
 				<div class="well">
 					<h5>Đăng nhập hệ thống</h5>
 					<br>
-					<c:if test="${ statusLogin }">
+					<c:if test="${not empty statusLogin}">
 						<h1>${statusLogin}</h1>
 					</c:if>
 					<form:form action="dang-nhap" method="POST" modelAttribute="user">

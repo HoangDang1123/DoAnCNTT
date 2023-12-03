@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.doan.Dao.SanPhamDao;
 import com.doan.Dto.SanPhamDto;
+import com.doan.Entity.LoaiSanPham;
+import com.doan.Entity.SanPham;
 
 @Service
 public class SanPhamServiceImpl implements ISanPhamService {
@@ -21,5 +23,17 @@ public class SanPhamServiceImpl implements ISanPhamService {
 
 	public List<SanPhamDto> GetProductByIDCategory(String id) {
 		return productDao.GetAllProductsByID(id);
+	}
+	
+	public int AddProduct(SanPham sanpham) {
+		return productDao.AddProduct(sanpham);
+	}
+	
+	public void deleteProduct (String id) {
+		productDao.deleteData(id);
+	}
+	
+	public void updateProduct(SanPhamDto sp) {
+		productDao.updateData(sp);
 	}
 }
