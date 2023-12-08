@@ -66,7 +66,7 @@ public class LoaiSanPhamDao extends BaseDao {
 	
 	private String SqlProductTypeByID(String id) {
 		StringBuffer sql = SqlString();
-		sql.append("WHERE lsp.maloaiSanPham = " + id + " ");
+		sql.append("WHERE lsp.maloaiSanPham = '" + id + " '");
 		return sql.toString();
 	}
 	

@@ -40,6 +40,12 @@ public class ChiTietDonHangDao {
 		return tongTien != null ? tongTien : 0;
 	}
 	
+	public int soLuongDaMua() {
+		String sql = "SELECT COUNT(*) FROM ChiTietDonHang";
+		int soLuong = jdbc.queryForObject(sql, Integer.class);
+		return soLuong;
+	}
+	
 	public List<ChiTietDonHangDto> getAll() {
 		String sql = "SELECT * FROM ChiTietDonHang LEFT JOIN SanPham ON ChiTietDonHang.maSanPham = SanPham.maSanPham";
 		return getBySql(sql);

@@ -92,7 +92,7 @@ public class SanPhamDao extends BaseDao {
 
 	private String SqlProductByID(String id) {
 		StringBuffer sql = SqlString();
-		sql.append("WHERE s.maSanPham = " + id + " ");
+		sql.append("WHERE s.maSanPham = '" + id + "' ");
 		return sql.toString();
 	}
 	

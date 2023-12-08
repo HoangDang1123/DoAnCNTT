@@ -78,12 +78,26 @@ p {
 	<p>Nhân Viên: ${sessionScope.LoginInfo.maNhanVien}</p>
 
 	<form action="xuat-hoa-don" method="GET">
-		<input type="hidden" name="tongTien" value="${tongTien}" />
-		<input type="hidden" name="tenNhanVien"
+		<input type="hidden" name="tongTien" value="${tongTien}" /> <input
+			type="hidden" name="tenNhanVien"
 			value="${sessionScope.LoginInfo.maNhanVien}" />
 		<!-- Các trường dữ liệu khác ở đây (nếu có) -->
+
 		<button type="submit">Xuất Hóa Đơn</button>
+
+		<!-- Thêm nút "Trở lại" -->
+		<button type="button" onclick="goBack()">Trở lại</button>
 	</form>
+
+	<script>
+    // Hàm điều hướng trang về trang trước đó
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+
+
 
 </body>
 </html>

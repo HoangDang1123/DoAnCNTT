@@ -57,7 +57,7 @@ public class LoaiSanPhamController extends BaseController{
 	public String editProductType(@PathVariable("maLoaiSanPham") String maLoaiSanPham, Model model) {
 		LoaiSanPhamDto producttype = loaisanphamService.GetProductTypeByID(maLoaiSanPham);
 		model.addAttribute("loaisanpham", producttype);
-		return "admin/products/editProductType";
+		return "admin/products/editproducttype";
 	}
 
 	@RequestMapping(value = "/deleteProductType/{maLoaiSanPham}", method = RequestMethod.GET)

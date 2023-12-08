@@ -60,7 +60,7 @@ public class HomeUserController {
 
 	@RequestMapping(value = "/thanh-toan", method = RequestMethod.POST)
 	public String muaHang(HttpServletRequest request, @RequestParam("maSanPhamInput") String maSanPham,
-			@RequestParam("soLuongInput") int soLuong, @RequestParam("giaTienInput") int giaTien) {
+			@RequestParam("soLuongInput") int soLuong, @RequestParam("giaTienInput") int giaTien, Model model) {
 
 		/*
 		 * String maSanPham = request.getParameter("maSanPham"); int soLuong =
@@ -73,6 +73,9 @@ public class HomeUserController {
 		chitietdonhang.setsoLuong(soLuong);
 
 		chitietdonhangDao.insert(chitietdonhang);
+
+		int soLuongDaMua = chitietdonhangDao.soLuongDaMua();
+		model.addAttribute("soLuongDaMua", soLuongDaMua);
 
 		return "user/thanhtoan";
 	}
@@ -91,37 +94,36 @@ public class HomeUserController {
 	}
 
 	@RequestMapping(value = "/xuat-hoa-don", method = RequestMethod.GET)
-	public String xuatHoaDon (Model model, HttpSession session, 
-			@RequestParam("tongTien") int tongTien,
+	public String xuatHoaDon(Model model, HttpSession session, @RequestParam("tongTien") int tongTien,
 			@RequestParam("tenNhanVien") String tenNhanVien) {
-        
-        DonHangDto donHang = new DonHangDto();
-        donHang.settongCong(tongTien);
-        donHang.setmaNhanVien(tenNhanVien);
-        
-        donhangDao.insert(donHang);
-        
-        List<ChiTietDonHangDto> donHang1 = chitietdonhangDao.getAll();
-        List<SanPhamDto> dsSanPham = sanphamDao.getAll();
-        
-        for (ChiTietDonHangDto chiTietDonHang : donHang1) {
-            // Lấy thông tin từ ChiTietDonHangDto
-            int soLuongHienCo = chiTietDonHang.getsoLuong();
-            String maSanPham = chiTietDonHang.getmaSanPham();
 
-            // Tạo một đối tượng SanPhamDto để thực hiện cập nhật
-            
-            SanPhamDto sanPhamDto = new SanPhamDto();
-            sanPhamDto.setmaSanPham(maSanPham);
-            sanPhamDto = sanphamDao.getById(sanPhamDto.getmaSanPham());
-            sanPhamDto.setsoLuongHienCo(sanPhamDto.getsoLuongHienCo()-soLuongHienCo);
+		DonHangDto donHang = new DonHangDto();
+		donHang.settongCong(tongTien);
+		donHang.setmaNhanVien(tenNhanVien);
 
-            // Gọi phương thức updateSoLuong
-            sanphamDao.updateSoLuong(sanPhamDto);
-        }
-        
-        chitietdonhangDao.deleteAll();
-        
-        return "redirect:thanh-toan";
+		donhangDao.insert(donHang);
+
+		List<ChiTietDonHangDto> donHang1 = chitietdonhangDao.getAll();
+		List<SanPhamDto> dsSanPham = sanphamDao.getAll();
+
+		for (ChiTietDonHangDto chiTietDonHang : donHang1) {
+			// Lấy thông tin từ ChiTietDonHangDto
+			int soLuongHienCo = chiTietDonHang.getsoLuong();
+			String maSanPham = chiTietDonHang.getmaSanPham();
+
+			// Tạo một đối tượng SanPhamDto để thực hiện cập nhật	
+
+			SanPhamDto sanPhamDto = new SanPhamDto();
+			sanPhamDto.setmaSanPham(maSanPham);
+			sanPhamDto = sanphamDao.getById(sanPhamDto.getmaSanPham());
+			sanPhamDto.setsoLuongHienCo(sanPhamDto.getsoLuongHienCo() - soLuongHienCo);
+
+			// Gọi phương thức updateSoLuong
+			sanphamDao.updateSoLuong(sanPhamDto);
+		}
+
+		chitietdonhangDao.deleteAll();
+
+		return "redirect:thanh-toan";
 	}
 }

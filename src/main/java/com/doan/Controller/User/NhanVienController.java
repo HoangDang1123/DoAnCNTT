@@ -59,7 +59,7 @@ public class NhanVienController extends BaseController{
 	public String editEmployee(@PathVariable("maNhanVien") String maNhanVien, Model model) {
 		NhanVienDto employee = nhanvienService.GetEmployeeByID(maNhanVien);
 		model.addAttribute("nhanvien", employee);
-		return "admin/employees/editEmployee";
+		return "admin/employees/editemployee";
 	}
 
 	@RequestMapping(value = "/deleteEmployee/{maNhanVien}", method = RequestMethod.GET)
